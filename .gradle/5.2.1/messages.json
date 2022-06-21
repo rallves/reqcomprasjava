@@ -1,0 +1,28 @@
+ 24
+        *PinsPerPhysPass: 24
+        *MinStripBlankPixels: 120
+        EXTERN_GLOBAL: *StripBlanks: LIST(LEADING,ENCLOSED,TRAILING)
+        *SpotDiameter: 120
+        *Command: CmdSendBlockData { *Cmd : "<1B>*!" %l{NumOfDataBytes / 3} }
+    }
+}
+
+
+
+
+*Feature: PaperSize
+{
+    *rcNameID: =PAPER_SIZE_DISPLAY
+    *DefaultOption: LETTER
+    *Option: A3
+    {
+        *rcNameID: =RCID_DMPAPER_SYSTEM_NAME
+        *switch: InputBin
+        {
+            *case: MANUAL
+            {
+                *PrintableArea: PAIR(7632, 11640)
+                *PrintableOrigin: PAIR(144, 132)
+            }
+            *default:
+  
