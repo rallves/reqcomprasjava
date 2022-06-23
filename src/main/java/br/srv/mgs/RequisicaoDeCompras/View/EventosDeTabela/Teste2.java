@@ -1,4 +1,4 @@
-package br.srv.mgs.RequisicaoDeCompras.EventosDeTabela;
+package br.srv.mgs.RequisicaoDeCompras.View.EventosDeTabela;
 
 import br.com.sankhya.extensions.actionbutton.AcaoRotinaJava;
 import br.com.sankhya.extensions.actionbutton.ContextoAcao;

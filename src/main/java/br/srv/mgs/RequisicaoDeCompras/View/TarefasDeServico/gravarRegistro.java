@@ -1,8 +1,7 @@
-package br.srv.mgs.RequisicaoDeCompras.TarefasDeServico;
+package br.srv.mgs.RequisicaoDeCompras.View.TarefasDeServico;
 
 import br.com.sankhya.extensions.flow.ContextoTarefa;
 import br.com.sankhya.extensions.flow.TarefaJava;
-import br.com.sankhya.jape.vo.DynamicVO;
 import br.com.sankhya.jape.wrapper.JapeFactory;
 import br.com.sankhya.jape.wrapper.JapeWrapper;
 import br.com.sankhya.jape.wrapper.fluid.FluidCreateVO;

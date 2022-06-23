@@ -1,11 +1,9 @@
-package br.srv.mgs.RequisicaoDeCompras.EventosDeTabela;
+package br.srv.mgs.RequisicaoDeCompras.View.EventosDeTabela;
 
 import br.com.sankhya.extensions.eventoprogramavel.EventoProgramavelJava;
-import br.com.sankhya.extensions.flow.EventoProcessoJava;
 import br.com.sankhya.jape.event.PersistenceEvent;
 import br.com.sankhya.jape.event.TransactionContext;
 import br.com.sankhya.jape.vo.DynamicVO;
-import br.com.sankhya.jape.vo.EntityVO;
 import br.srv.mgs.RequisicaoDeCompras.commons.NativeSqlDecorator;
 import br.srv.mgs.RequisicaoDeCompras.commons.VariaveisFlow;
 

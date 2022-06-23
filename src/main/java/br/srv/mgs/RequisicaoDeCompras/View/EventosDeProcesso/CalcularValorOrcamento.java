@@ -1,4 +1,4 @@
-package br.srv.mgs.RequisicaoDeCompras.EventosDeProcesso;
+package br.srv.mgs.RequisicaoDeCompras.View.EventosDeProcesso;
 
 import br.com.sankhya.extensions.flow.ContextoEvento;
 import br.com.sankhya.extensions.flow.EventoProcessoJava;
