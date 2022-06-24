@@ -13,6 +13,10 @@ import java.util.Collection;
 public class BuscarProdutosSubProcesso implements TarefaJava {
     @Override
     public void executar(ContextoTarefa contextoTarefa) throws Exception {
+
+
+
+
         BigDecimal idinstprn_prc =  new BigDecimal(String.valueOf(contextoTarefa.getCampo("IDINSTPRN_PRC")));
 
 

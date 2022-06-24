@@ -6,6 +6,7 @@ import br.com.sankhya.jape.event.TransactionContext;
 import br.com.sankhya.jape.vo.DynamicVO;
 import br.com.sankhya.jape.wrapper.JapeFactory;
 import br.com.sankhya.jape.wrapper.JapeWrapper;
+import com.sun.rowset.internal.InsertRow;
 
 import java.math.BigDecimal;
 
@@ -13,6 +14,10 @@ public class BuscarCodigoUnidadeProduto implements EventoProgramavelJava {
     @Override
     public void beforeInsert(PersistenceEvent persistenceEvent) throws Exception {
         DynamicVO itensProdutosVO = (DynamicVO) persistenceEvent.getVo();
+
+        InsertRow inserido = new InsertRow(1);
+        //inserido.
+
         BigDecimal codprod = itensProdutosVO.asBigDecimal("CODPROD");
 
         JapeWrapper produtoDAO = JapeFactory.dao("Produto");
