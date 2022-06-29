@@ -12,12 +12,10 @@ import java.util.Collection;
 public class MateriaisEServicosModel {
 
     private DynamicVO MASTERVO;
-
     private DynamicVO vo;
-
-
-
     private JapeWrapper CMPPRODSDAO = JapeFactory.dao("AD_CMPPRODS");
+
+
     private FluidCreateVO FLUIDCREATEVO;
     private BigDecimal CODPROD;
     private  BigDecimal IDINSTPRN_PRC;
