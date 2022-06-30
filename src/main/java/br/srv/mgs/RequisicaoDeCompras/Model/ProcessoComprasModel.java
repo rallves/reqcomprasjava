@@ -44,4 +44,40 @@ public class ProcessoComprasModel {
     private String DESCRICAOINSTRUMENTO;
     private BigDecimal USUARIOFILA;
     private BigDecimal NUMEROOSCOMPRA;
+
+    private void inicializaAtributos() throws Exception {
+        MASTERVO = (DynamicVO) JapeFactory.dao("AD_CMPREQCOMP").find("IDINSTPRN = ? ", vo.asBigDecimal("IDINSTPRN"));
+        CODIGOPARCEIRO = vo.asBigDecimal("CODPARC");
+        CODIGONATUREZA = vo.asBigDecimal("CODNAT");
+        CODIGOLOTACAO = vo.asBigDecimal("CODLOT");
+        CENTRORESULTADO = vo.asBigDecimal("CODCENCUS");
+        CODIGOPROJETO = vo.asBigDecimal("CODPROJ");
+        DATANEGOCIACAO = vo.asTimestamp("DTNEG");
+        JUSTIFICATIVACOMPRA = vo.asString("JSTCOMP");
+        VALORORCAMENTO = vo.asBigDecimal("VLRORC");
+        CODIGOTIPOOPERACAO = vo.asBigDecimal("CODTIPOPER");
+        TIPODENEGOCIACAO = vo.asBigDecimal("CODTIPVENDA");
+        JUSTIFICATIVAREFERENCIA = vo.asString("JSTREFCMP");
+        EMAILGRUPODEMANDANTE = vo.asString("EMLGRCMP");
+        JUSTIFICATIVAAPROVADORHIERARQUICO = vo.asString("JSTLIBPRC");
+        EMAILCOORDENADORCOMPRAS = vo.asString("EMLCCMP");
+        DATAENVIOPROCESSO = vo.asTimestamp("DTENVPRC");
+        DATALIBERACAOPROCESSO = vo.asTimestamp("DTLIBPRC");
+        MATRICULACOMPRADOR = vo.asBigDecimal("CODIGO");
+        EMAILCOMPRADOR = vo.asString("EMLCMP");
+        NUMEROUNICONOTA = vo.asBigDecimal("NUMUNICO");
+        JUSTIFICATIVAENVIOCOMPRA = vo.asString("JSTENVCMP");
+        JUSTIFICATIVAPROCESSOCOMPRADOR = vo.asString("JSTPRCCMP");
+        JUSTIFICATIVAORCAMENTO = vo.asString("JSTORC");
+        EMAILMODALIDADECOMPRA = vo.asString("EMAMDCMP");
+        MATRICULAMODALIDADECOMPRA = vo.asBigDecimal("MATMCMP");
+        JUSTIFICATIVAAREADEMANDANTE = vo.asString("JSTACORC");
+        CODIGOPROCESSO = vo.asBigDecimal("CODPROC");
+        CODIGOMOTIVO = vo.asBigDecimal("CODOCOROS");
+        DESCRICAOINSTRUMENTO = vo.asString("DSCINSTR");
+        USUARIOFILA = vo.asBigDecimal("USUFIL");
+        NUMEROOSCOMPRA = vo.asBigDecimal("NUMOS");
+
+
+    }
 }

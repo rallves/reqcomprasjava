@@ -3,5 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/requisicao-de-compras-e-commerce" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/requisicao-de-compras-e-commerce/requisicao-de-compras-e-commerce" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/requisicao-de-compras-e-commerce/requisicao-de-compras-e-commerce/requisicao-de-compras-e-commerce" vcs="Git" />
   </component>
 </project>
