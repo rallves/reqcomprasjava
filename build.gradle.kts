@@ -5,6 +5,7 @@ plugins {
 group = "br.srv.mgs.flow"
 version = "flow_TesteMgs"
 val skwversion = "4.10b150"
+description = "Projeto e-commerce 1.0"
 
 repositories {
     mavenCentral()
