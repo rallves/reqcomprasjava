@@ -45,6 +45,25 @@ public class ProcessoComprasModel {
     private BigDecimal USUARIOFILA;
     private BigDecimal NUMEROOSCOMPRA;
 
+    public ProcessoComprasModel() {
+    }
+
+    public ProcessoComprasModel(BigDecimal IDINSTPRN) throws Exception {
+        this.IDINSTPRN = (BigDecimal) CMPPRODSDAO.findByPK(IDINSTPRN);
+        inicializaAtributos();
+    }
+
+    public ProcessoComprasModel(DynamicVO vo) throws Exception {
+        this.vo = vo;
+        inicializaAtributos();
+
+    }
+
+    public void setVo(DynamicVO vo) throws Exception {
+        this.vo = vo;
+        inicializaAtributos();
+    }
+
     private void inicializaAtributos() throws Exception {
         MASTERVO = (DynamicVO) JapeFactory.dao("AD_CMPREQCOMP").find("IDINSTPRN = ? ", vo.asBigDecimal("IDINSTPRN"));
         CODIGOPARCEIRO = vo.asBigDecimal("CODPARC");
