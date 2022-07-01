@@ -1,16 +1,21 @@
 package br.srv.mgs.RequisicaoDeCompras.Model;
 
+import br.com.sankhya.extensions.flow.ContextoTarefa;
 import br.com.sankhya.jape.vo.DynamicVO;
 import br.com.sankhya.jape.wrapper.JapeFactory;
 import br.com.sankhya.jape.wrapper.JapeWrapper;
+import br.com.sankhya.jape.wrapper.fluid.FluidCreateVO;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 public class ProcessoComprasModel {
     private DynamicVO MASTERVO;
-    private DynamicVO vo;
+
+    private ContextoTarefa ct;
     private JapeWrapper CMPPRODSDAO = JapeFactory.dao("AD_CMPREQCOMP");
+
+    private FluidCreateVO cp = CMPPRODSDAO.create();
 
 
     private BigDecimal IDINSTPRN;
@@ -52,50 +57,84 @@ public class ProcessoComprasModel {
         this.IDINSTPRN = (BigDecimal) CMPPRODSDAO.findByPK(IDINSTPRN);
         inicializaAtributos();
     }
-
-    public ProcessoComprasModel(DynamicVO vo) throws Exception {
-        this.vo = vo;
+    public ProcessoComprasModel(ContextoTarefa contextoTarefa) throws Exception {
         inicializaAtributos();
-
+        cp.set("IDINSTPRN", IDINSTPRN);
+        cp.set("CODIGOPARCEIRO", CODIGOPARCEIRO);
+        cp.set("CODIGONATUREZA", CODIGONATUREZA);
+        cp.set("CODIGOLOTACAO", CODIGOLOTACAO);
+        cp.set("CENTRORESULTADO", CENTRORESULTADO);
+        cp.set("CODIGOPROJETO", CODIGOPROJETO);
+        cp.set("DATANEGOCIACAO", DATANEGOCIACAO);
+        cp.set("JUSTIFICATIVACOMPRA", JUSTIFICATIVACOMPRA);
+        cp.set("VALORORCAMENTO", VALORORCAMENTO);
+        cp.set("CODIGOTIPOOPERACAO", CODIGOTIPOOPERACAO);
+        cp.set("TIPODENEGOCIACAO", TIPODENEGOCIACAO);
+        cp.set("JUSTIFICATIVAREFERENCIA", JUSTIFICATIVAREFERENCIA);
+        cp.set("EMAILGRUPODEMANDANTE", EMAILGRUPODEMANDANTE);
+        cp.set("JUSTIFICATIVAAPROVADORHIERARQUICO", JUSTIFICATIVAAPROVADORHIERARQUICO);
+        cp.set("EMAILCOORDENADORCOMPRAS", EMAILCOORDENADORCOMPRAS);
+        cp.set("DATAENVIOPROCESSO", DATAENVIOPROCESSO);
+        cp.set("DATALIBERACAOPROCESSO", DATALIBERACAOPROCESSO);
+        cp.set("MATRICULACOMPRADOR", MATRICULACOMPRADOR);
+        cp.set("EMAILCOMPRADOR", EMAILCOMPRADOR);
+        cp.set("NUMEROUNICONOTA", NUMEROUNICONOTA);
+        cp.set("JUSTIFICATIVAENVIOCOMPRA", JUSTIFICATIVAENVIOCOMPRA);
+        cp.set("JUSTIFICATIVAPROCESSOCOMPRADOR", JUSTIFICATIVAPROCESSOCOMPRADOR);
+        cp.set("JUSTIFICATIVAORCAMENTO", JUSTIFICATIVAORCAMENTO);
+        cp.set("EMAILMODALIDADECOMPRA", EMAILMODALIDADECOMPRA);
+        cp.set("MATRICULAMODALIDADECOMPRA", MATRICULAMODALIDADECOMPRA);
+        cp.set("JUSTIFICATIVAAREADEMANDANTE", JUSTIFICATIVAAREADEMANDANTE);
+        cp.set("CODIGOPROCESSO", CODIGOPROCESSO);
+        cp.set("CODIGOMOTIVO", CODIGOMOTIVO);
+        cp.set("DESCRICAOINSTRUMENTO", DESCRICAOINSTRUMENTO);
+        cp.set("USUARIOFILA", USUARIOFILA);
+        cp.set("NUMEROOSCOMPRA", NUMEROOSCOMPRA);
     }
 
-    public void setVo(DynamicVO vo) throws Exception {
-        this.vo = vo;
+
+    public void setAtributos(ContextoTarefa contextoTarefa) throws Exception {
+        this.ct = contextoTarefa;
         inicializaAtributos();
+
+
+    }
+    public void gravarProcessoCompra(){
+
     }
 
     private void inicializaAtributos() throws Exception {
-        MASTERVO = (DynamicVO) JapeFactory.dao("AD_CMPREQCOMP").find("IDINSTPRN = ? ", vo.asBigDecimal("IDINSTPRN"));
-        CODIGOPARCEIRO = vo.asBigDecimal("CODPARC");
-        CODIGONATUREZA = vo.asBigDecimal("CODNAT");
-        CODIGOLOTACAO = vo.asBigDecimal("CODLOT");
-        CENTRORESULTADO = vo.asBigDecimal("CODCENCUS");
-        CODIGOPROJETO = vo.asBigDecimal("CODPROJ");
-        DATANEGOCIACAO = vo.asTimestamp("DTNEG");
-        JUSTIFICATIVACOMPRA = vo.asString("JSTCOMP");
-        VALORORCAMENTO = vo.asBigDecimal("VLRORC");
-        CODIGOTIPOOPERACAO = vo.asBigDecimal("CODTIPOPER");
-        TIPODENEGOCIACAO = vo.asBigDecimal("CODTIPVENDA");
-        JUSTIFICATIVAREFERENCIA = vo.asString("JSTREFCMP");
-        EMAILGRUPODEMANDANTE = vo.asString("EMLGRCMP");
-        JUSTIFICATIVAAPROVADORHIERARQUICO = vo.asString("JSTLIBPRC");
-        EMAILCOORDENADORCOMPRAS = vo.asString("EMLCCMP");
-        DATAENVIOPROCESSO = vo.asTimestamp("DTENVPRC");
-        DATALIBERACAOPROCESSO = vo.asTimestamp("DTLIBPRC");
-        MATRICULACOMPRADOR = vo.asBigDecimal("CODIGO");
-        EMAILCOMPRADOR = vo.asString("EMLCMP");
-        NUMEROUNICONOTA = vo.asBigDecimal("NUMUNICO");
-        JUSTIFICATIVAENVIOCOMPRA = vo.asString("JSTENVCMP");
-        JUSTIFICATIVAPROCESSOCOMPRADOR = vo.asString("JSTPRCCMP");
-        JUSTIFICATIVAORCAMENTO = vo.asString("JSTORC");
-        EMAILMODALIDADECOMPRA = vo.asString("EMAMDCMP");
-        MATRICULAMODALIDADECOMPRA = vo.asBigDecimal("MATMCMP");
-        JUSTIFICATIVAAREADEMANDANTE = vo.asString("JSTACORC");
-        CODIGOPROCESSO = vo.asBigDecimal("CODPROC");
-        CODIGOMOTIVO = vo.asBigDecimal("CODOCOROS");
-        DESCRICAOINSTRUMENTO = vo.asString("DSCINSTR");
-        USUARIOFILA = vo.asBigDecimal("USUFIL");
-        NUMEROOSCOMPRA = vo.asBigDecimal("NUMOS");
+        IDINSTPRN = (BigDecimal) ct.getCampo("IDINSTPRN");
+        CODIGOPARCEIRO = (BigDecimal) ct.getCampo("CODPARC");
+        CODIGONATUREZA = (BigDecimal) ct.getCampo("CODNAT");
+        CODIGOLOTACAO = (BigDecimal) ct.getCampo("CODLOT");
+        CENTRORESULTADO = (BigDecimal) ct.getCampo("CODCENCUS");
+        CODIGOPROJETO = (BigDecimal) ct.getCampo("CODPROJ");
+        DATANEGOCIACAO = (Timestamp) ct.getCampo("DTNEG");
+        JUSTIFICATIVACOMPRA = (String) ct.getCampo("JSTCOMP");
+        VALORORCAMENTO = (BigDecimal) ct.getCampo("VLRORC");
+        CODIGOTIPOOPERACAO = (BigDecimal) ct.getCampo("CODTIPOPER");
+        TIPODENEGOCIACAO = (BigDecimal) ct.getCampo("CODTIPVENDA");
+        JUSTIFICATIVAREFERENCIA = (String) ct.getCampo("JSTREFCMP");
+        EMAILGRUPODEMANDANTE = (String) ct.getCampo("EMLGRCMP");
+        JUSTIFICATIVAAPROVADORHIERARQUICO = (String) ct.getCampo("JSTLIBPRC");
+        EMAILCOORDENADORCOMPRAS = (String) ct.getCampo("EMLCCMP");
+        DATAENVIOPROCESSO = (Timestamp) ct.getCampo("DTENVPRC");
+        DATALIBERACAOPROCESSO = (Timestamp) ct.getCampo("DTLIBPRC");
+        MATRICULACOMPRADOR = (BigDecimal) ct.getCampo("CODIGO");
+        EMAILCOMPRADOR = (String) ct.getCampo("EMLCMP");
+        NUMEROUNICONOTA = (BigDecimal) ct.getCampo("NUMUNICO");
+        JUSTIFICATIVAENVIOCOMPRA = (String) ct.getCampo("JSTENVCMP");
+        JUSTIFICATIVAPROCESSOCOMPRADOR = (String) ct.getCampo("JSTPRCCMP");
+        JUSTIFICATIVAORCAMENTO = (String) ct.getCampo("JSTORC");
+        EMAILMODALIDADECOMPRA = (String) ct.getCampo("EMAMDCMP");
+        MATRICULAMODALIDADECOMPRA = (BigDecimal) ct.getCampo("MATMCMP");
+        JUSTIFICATIVAAREADEMANDANTE = (String) ct.getCampo("JSTACORC");
+        CODIGOPROCESSO = (BigDecimal) ct.getCampo("CODPROC");
+        CODIGOMOTIVO = (BigDecimal) ct.getCampo("CODOCOROS");
+        DESCRICAOINSTRUMENTO = (String) ct.getCampo("DSCINSTR");
+        USUARIOFILA = (BigDecimal) ct.getCampo("USUFIL");
+        NUMEROOSCOMPRA = (BigDecimal) ct.getCampo("NUMOS");
 
 
     }
