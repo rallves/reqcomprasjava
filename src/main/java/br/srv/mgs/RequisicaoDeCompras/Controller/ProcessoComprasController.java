@@ -15,6 +15,7 @@ public class ProcessoComprasController {
     }
     public void inicializaAtributos(ContextoTarefa contextoTarefa) throws Exception {
         processoComprasModel.setAtributos(contextoTarefa);
+        processoComprasModel.gravarProcessoCompra();
     }
 
 }
