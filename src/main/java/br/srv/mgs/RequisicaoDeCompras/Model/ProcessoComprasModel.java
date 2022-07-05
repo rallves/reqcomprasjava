@@ -114,7 +114,7 @@ public class ProcessoComprasModel {
         CODIGOPROJETO = new BigDecimal(String.valueOf(ct.getCampo("CODPROJ")));
         DATANEGOCIACAO = (Timestamp) ct.getCampo("DTNEG");
         JUSTIFICATIVACOMPRA = (String) ct.getCampo("JSTCOMP");
-        VALORORCAMENTO = ct.getCampo("VLRORC") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("VLRORC").toString());
+        VALORORCAMENTO = ct.getCampo("VLRORC") == null ? BigDecimal.ZERO : new BigDecimal(String.valueOf(ct.getCampo("VLRORC")));
         CODIGOTIPOOPERACAO = ct.getCampo("CODTIPOPER") == null ? BigDecimal.ZERO :  new BigDecimal(ct.getCampo("CODTIPOPER").toString());
         TIPODENEGOCIACAO = ct.getCampo("CODTIPVENDA") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("CODTIPVENDA").toString());
         JUSTIFICATIVAREFERENCIA = ct.getCampo("JSTREFCMP") == null ? "N/A" : (String) ct.getCampo("JSTREFCMP");
