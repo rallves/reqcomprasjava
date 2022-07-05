@@ -5,6 +5,7 @@ import br.com.sankhya.jape.vo.DynamicVO;
 import br.com.sankhya.jape.wrapper.JapeFactory;
 import br.com.sankhya.jape.wrapper.JapeWrapper;
 import br.com.sankhya.jape.wrapper.fluid.FluidCreateVO;
+import com.sankhya.util.TimeUtils;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -19,11 +20,11 @@ public class ProcessoComprasModel {
 
 
     private BigDecimal IDINSTPRN;
-    private String CODIGOPARCEIRO;
+    private BigDecimal CODIGOPARCEIRO;
     private BigDecimal CODIGONATUREZA;
-    private String CODIGOLOTACAO;
-    private String CENTRORESULTADO;
-    private String CODIGOPROJETO;
+    private BigDecimal CODIGOLOTACAO;
+    private BigDecimal CENTRORESULTADO;
+    private BigDecimal CODIGOPROJETO;
     private Timestamp DATANEGOCIACAO;
     private String JUSTIFICATIVACOMPRA;
     private BigDecimal VALORORCAMENTO;
@@ -106,35 +107,35 @@ public class ProcessoComprasModel {
 
     private void inicializaAtributos() throws Exception {
         IDINSTPRN = ct.getCampo("IDINSTPRN_PRC") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("IDINSTPRN_PRC").toString());
-        CODIGOPARCEIRO = String.valueOf(ct.getCampo("CODPARC"));
+        CODIGOPARCEIRO = new BigDecimal(String.valueOf(ct.getCampo("CODPARC")));
         CODIGONATUREZA = new BigDecimal(ct.getCampo("CODNAT").toString());
-        CODIGOLOTACAO = String.valueOf(ct.getCampo("CODLOT"));
-        CENTRORESULTADO = String.valueOf(ct.getCampo("CODCENCUS"));
-        CODIGOPROJETO = String.valueOf(ct.getCampo("CODPROJ"));
+        CODIGOLOTACAO = new BigDecimal(String.valueOf(ct.getCampo("CODLOT")));
+        CENTRORESULTADO = new BigDecimal(String.valueOf(ct.getCampo("CODCENCUS")));
+        CODIGOPROJETO = new BigDecimal(String.valueOf(ct.getCampo("CODPROJ")));
         DATANEGOCIACAO = (Timestamp) ct.getCampo("DTNEG");
         JUSTIFICATIVACOMPRA = (String) ct.getCampo("JSTCOMP");
-        VALORORCAMENTO = ct.getCampo("VLRORC") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("VLRORC");
-        CODIGOTIPOOPERACAO = ct.getCampo("CODTIPOPER") == null ? BigDecimal.ZERO :  (BigDecimal) ct.getCampo("CODTIPOPER");
-        TIPODENEGOCIACAO = ct.getCampo("CODTIPVENDA") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("CODTIPVENDA");
+        VALORORCAMENTO = ct.getCampo("VLRORC") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("VLRORC").toString());
+        CODIGOTIPOOPERACAO = ct.getCampo("CODTIPOPER") == null ? BigDecimal.ZERO :  new BigDecimal(ct.getCampo("CODTIPOPER").toString());
+        TIPODENEGOCIACAO = ct.getCampo("CODTIPVENDA") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("CODTIPVENDA").toString());
         JUSTIFICATIVAREFERENCIA = ct.getCampo("JSTREFCMP") == null ? "N/A" : (String) ct.getCampo("JSTREFCMP");
         EMAILGRUPODEMANDANTE = ct.getCampo("EMLGRCMP") == null ? "N/A" : (String) ct.getCampo("EMLGRCMP");
-        JUSTIFICATIVAAPROVADORHIERARQUICO = (String) ct.getCampo("JSTLIBPRC");
+        JUSTIFICATIVAAPROVADORHIERARQUICO = ct.getCampo("JSTLIBPRC") == null ? "N/A" : (String) ct.getCampo("JSTLIBPRC");
         EMAILCOORDENADORCOMPRAS = ct.getCampo("EMLCCMP") == null ? "N/A" : (String) ct.getCampo("EMLCCMP");
-        DATAENVIOPROCESSO =  (Timestamp) ct.getCampo("DTENVPRC");
-        DATALIBERACAOPROCESSO = (Timestamp) ct.getCampo("DTLIBPRC");
-        MATRICULACOMPRADOR = ct.getCampo("CODIGO") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("CODIGO");
+        DATAENVIOPROCESSO =  ct.getCampo("DTENVPRC") == null ? TimeUtils.getNow() :(Timestamp)ct.getCampo("DTENVPRC");
+        DATALIBERACAOPROCESSO = ct.getCampo("DTLIBPRC") ==  null ? TimeUtils.getNow() : (Timestamp) ct.getCampo("DTLIBPRC");
+        MATRICULACOMPRADOR = ct.getCampo("CODIGO") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("CODIGO").toString());
         EMAILCOMPRADOR = ct.getCampo("EMLCMP") == null ? "N/A" : (String) ct.getCampo("EMLCMP");
-        NUMEROUNICONOTA = ct.getCampo("NUMUNICO") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("NUMUNICO");
+        NUMEROUNICONOTA = ct.getCampo("NUMUNICO") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("NUMUNICO").toString());
         JUSTIFICATIVAENVIOCOMPRA = ct.getCampo("JSTENVCMP") == null ? "N/A": (String) ct.getCampo("JSTENVCMP");
         JUSTIFICATIVAPROCESSOCOMPRADOR = ct.getCampo("JSTPRCCMP") == null ? "N/A" : (String) ct.getCampo("JSTPRCCMP");
         JUSTIFICATIVAORCAMENTO = ct.getCampo("JSTORC") == null ? "N/A" : (String) ct.getCampo("JSTORC");
         EMAILMODALIDADECOMPRA = ct.getCampo("EMAMDCMP") == null ? "N/A" : (String) ct.getCampo("EMAMDCMP");
-        MATRICULAMODALIDADECOMPRA = ct.getCampo("MATMCMP") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("MATMCMP");
+        MATRICULAMODALIDADECOMPRA = ct.getCampo("MATMCMP") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("MATMCMP").toString());
         JUSTIFICATIVAAREADEMANDANTE = ct.getCampo("JSTACORC") == null ? "N/A" : (String) ct.getCampo("JSTACORC");
-        CODIGOPROCESSO = ct.getCampo("CODPROC") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("CODPROC");
-        CODIGOMOTIVO = ct.getCampo("CODOCOROS") ==  null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("CODOCOROS");
+        CODIGOPROCESSO = ct.getCampo("CODPROC") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("CODPROC").toString());
+        CODIGOMOTIVO = ct.getCampo("CODOCOROS") ==  null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("CODOCOROS").toString());
         DESCRICAOINSTRUMENTO = ct.getCampo("DSCINSTR") == null ? "N/A" : (String) ct.getCampo("DSCINSTR");
-        USUARIOFILA = ct.getCampo("USUFIL") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("USUFIL");
-        NUMEROOSCOMPRA = ct.getCampo("NUMOS") == null ? BigDecimal.ZERO : (BigDecimal) ct.getCampo("NUMOS");
+        USUARIOFILA = ct.getCampo("USUFIL") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("USUFIL").toString());
+        NUMEROOSCOMPRA = ct.getCampo("NUMOS") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("NUMOS").toString());
     }
 }
