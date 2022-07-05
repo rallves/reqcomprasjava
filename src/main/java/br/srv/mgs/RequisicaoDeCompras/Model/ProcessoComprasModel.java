@@ -20,7 +20,7 @@ public class ProcessoComprasModel {
 
     private BigDecimal IDINSTPRN;
     private String CODIGOPARCEIRO;
-    private String CODIGONATUREZA;
+    private BigDecimal CODIGONATUREZA;
     private String CODIGOLOTACAO;
     private String CENTRORESULTADO;
     private String CODIGOPROJETO;
@@ -107,7 +107,7 @@ public class ProcessoComprasModel {
     private void inicializaAtributos() throws Exception {
         IDINSTPRN = (BigDecimal) ct.getCampo("IDINSTPRN");
         CODIGOPARCEIRO = String.valueOf(ct.getCampo("CODPARC"));
-        CODIGONATUREZA = String.valueOf(ct.getCampo("CODNAT"));
+        CODIGONATUREZA = new BigDecimal(ct.getCampo("CODNAT").toString());
         CODIGOLOTACAO = String.valueOf(ct.getCampo("CODLOT"));
         CENTRORESULTADO = String.valueOf(ct.getCampo("CODCENCUS"));
         CODIGOPROJETO = String.valueOf(ct.getCampo("CODPROJ"));
