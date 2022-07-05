@@ -105,7 +105,7 @@ public class ProcessoComprasModel {
     }
 
     private void inicializaAtributos() throws Exception {
-        IDINSTPRN = (BigDecimal) ct.getCampo("IDINSTPRN_PRC");
+        IDINSTPRN = ct.getCampo("IDINSTPRN_PRC") == null ? BigDecimal.ZERO : new BigDecimal(ct.getCampo("IDINSTPRN_PRC").toString());
         CODIGOPARCEIRO = String.valueOf(ct.getCampo("CODPARC"));
         CODIGONATUREZA = new BigDecimal(ct.getCampo("CODNAT").toString());
         CODIGOLOTACAO = String.valueOf(ct.getCampo("CODLOT"));
