@@ -20,10 +20,10 @@ public class ProcessoComprasModel {
 
     private BigDecimal IDINSTPRN;
     private String CODIGOPARCEIRO;
-    private BigDecimal CODIGONATUREZA;
-    private BigDecimal CODIGOLOTACAO;
-    private BigDecimal CENTRORESULTADO;
-    private BigDecimal CODIGOPROJETO;
+    private String CODIGONATUREZA;
+    private String CODIGOLOTACAO;
+    private String CENTRORESULTADO;
+    private String CODIGOPROJETO;
     private Timestamp DATANEGOCIACAO;
     private String JUSTIFICATIVACOMPRA;
     private BigDecimal VALORORCAMENTO;
@@ -106,11 +106,11 @@ public class ProcessoComprasModel {
 
     private void inicializaAtributos() throws Exception {
         IDINSTPRN = (BigDecimal) ct.getCampo("IDINSTPRN");
-        CODIGOPARCEIRO = ct.getCampo("CODPARC").toString();
-        CODIGONATUREZA = (BigDecimal) ct.getCampo("CODNAT");
-        CODIGOLOTACAO = (BigDecimal) ct.getCampo("CODLOT");
-        CENTRORESULTADO = (BigDecimal) ct.getCampo("CODCENCUS");
-        CODIGOPROJETO = (BigDecimal) ct.getCampo("CODPROJ");
+        CODIGOPARCEIRO = String.valueOf(ct.getCampo("CODPARC"));
+        CODIGONATUREZA = String.valueOf(ct.getCampo("CODNAT"));
+        CODIGOLOTACAO = String.valueOf(ct.getCampo("CODLOT"));
+        CENTRORESULTADO = String.valueOf(ct.getCampo("CODCENCUS"));
+        CODIGOPROJETO = String.valueOf(ct.getCampo("CODPROJ"));
         DATANEGOCIACAO = (Timestamp) ct.getCampo("DTNEG");
         JUSTIFICATIVACOMPRA = (String) ct.getCampo("JSTCOMP");
         VALORORCAMENTO = (BigDecimal) ct.getCampo("VLRORC");
